@@ -12,6 +12,6 @@
 - [x] [Lecture 4: Grid + enum + Optionals](https://youtu.be/eHEeWzFP6O4)
 - [x] [Lecture 5: ViewBuilder + Shape + ViewModifier](https://youtu.be/oDKDGCRdSHc)
 - [x] [Lecture 5: ViewBuilder + Shape + ViewModifier](https://youtu.be/oDKDGCRdSHc)
-- [ ] [Lecture 6: Animation](https://youtu.be/3krC2c56ceQ)
+- [x] [Lecture 6: Animation](https://youtu.be/3krC2c56ceQ) (Partial: After getting practice with animation I didn't bother cleaning up/finishing the project)
 
 Future Lectures will be continued in another repository

@@ -12,14 +12,27 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        Grid (viewModel.cards) { card in
-            CardView(card: card).onTapGesture {
-                self.viewModel.choose(card: card)
+        VStack {
+            Grid (viewModel.cards) { card in
+                CardView(card: card).onTapGesture {
+                    withAnimation(.linear) {
+                        self.viewModel.choose(card: card)
+                    }
+                }
+                .padding(5)
             }
-            .padding(5)
+                .foregroundColor(Color.orange)
+            
+            Button(action: {
+                withAnimation(.easeInOut) {
+                    self.viewModel.resetGame()
+                }
+            })
+            {
+                Text("New Game")
+            }
         }
-        .padding()
-        .foregroundColor(Color.orange)
+            .padding()
     }
 }
 
@@ -41,8 +54,11 @@ struct CardView: View {
                     .opacity(0.4)
                 Text(self.card.content)
                     .font(Font.system(size: fontSize(for: size)))
+                    .rotationEffect(Angle.degrees(card.isMatched ? 360 :0))
+                    .animation(card.isMatched ? Animation.linear : .default)
             }
             .cardify(isFaceUp: card.isFaceUp)
+            .transition(AnyTransition.scale)
         }
     }
     // MARK: - Drawing Constants
